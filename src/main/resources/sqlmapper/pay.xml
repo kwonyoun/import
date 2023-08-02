@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.PayDao">
+
+    <insert id="paySuccess" >
+        insert into payinfo values(default, ${amount}, #{imp_uid} )
+    </insert>
+
+    <select id="payInfoSelect" parameterType="String" resultType="com.example.demo.vo.PayinfoVO" >
+        select * from payinfo where imp_uid = #{imp_uid}
+    </select>
+    
+</mapper>
