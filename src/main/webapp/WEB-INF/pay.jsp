@@ -32,14 +32,25 @@
                 msg += '// 상점 거래ID : ' + data.merchant_uid;
                 msg += '// 결제 금액 : ' + data.paid_amount;
                 msg += '// 카드 승인번호 : ' + data.apply_num;
+
+                var ordData = {
+                // "name" : data.name,
+                "imp_uid" : data.imp_uid,
+                // "merchant_uid" : data.merchant_uid,
+                "paid_amount" : data.paid_amount
+                // "apply_num" : data.apply_num,
+                // "buyer_email" : data.buyer_email,
+                // "buyer_name" : data.buyer_name,
+                // "buyer_tel" : data.buyer_tel,
+                // "buyer_addr" : data.buyer_addr,
+                // "buyer_postcode" : data.buyer_postcode
+            };
                 
                 $.ajax({
                     type : 'post',
-                    url : '/paySuccess',
-                    data : {
-                        "imp_uid" : data.imp_uid, 
-                        "paid_amount" : data.paid_amount
-                    },
+                    url : '/paySuccessVO',
+                    contentType: 'application/json; charset=utf-8', 
+                    data : JSON.stringify(ordData),
                     success: function(res) {
                         alert("ajax-success   "+res);
                         document.location.href="/payInfo/"+res;

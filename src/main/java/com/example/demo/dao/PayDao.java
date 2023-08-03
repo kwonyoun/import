@@ -10,7 +10,10 @@ import com.example.demo.vo.PayinfoVO;
 public interface PayDao {
     
     //Dao
-    public void paySuccess(Map<String, Object> map);
+    public void paySuccessJSON(Map<String, Object> map);
+    public void paySuccessVO(PayinfoVO vo);
+    public void paySuccessParam(Map<String, Object> map);
+
     public PayinfoVO payInfoSelect(String uid);
     
 }

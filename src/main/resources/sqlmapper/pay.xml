@@ -4,8 +4,16 @@
 
 <mapper namespace="com.example.demo.dao.PayDao">
 
-    <insert id="paySuccess" >
-        insert into payinfo values(default, ${amount}, #{imp_uid} )
+    <insert id="paySuccessJSON" >
+        insert into payinfo values(default, ${paid_amount}, #{imp_uid} )
+    </insert>
+
+    <insert id="paySuccessVO" >
+        insert into payinfo values(default, ${paid_amount}, #{imp_uid} )
+    </insert>
+
+    <insert id="paySuccessParam" >
+        insert into payinfo values(default, ${paid_amount}, #{imp_uid} )
     </insert>
 
     <select id="payInfoSelect" parameterType="String" resultType="com.example.demo.vo.PayinfoVO" >
